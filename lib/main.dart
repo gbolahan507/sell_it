@@ -1,5 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:sell_its/model/feedscreen.dart';
+import 'package:sell_its/model/foodPro.dart';
 import 'package:sell_its/provider/adminMode.dart';
 import 'package:sell_its/provider/modelHud.dart';
 import 'package:provider/provider.dart';
@@ -27,6 +29,9 @@ class MyApp extends StatelessWidget {
         // ),
         ChangeNotifierProvider<AdminMode>(
           create: (context) => AdminMode(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => ProductNotifier(),
         )
       ],
       child: MaterialApp(
@@ -36,7 +41,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
-        home: Admin_homePage(),
+        home: FeedScreen(),
       ),
     );
   }

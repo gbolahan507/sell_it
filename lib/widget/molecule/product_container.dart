@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:sell_its/util/colors.dart';
 import 'package:sell_its/widget/atom/custom_menu.dart';
@@ -128,6 +129,8 @@ class ProdContainer extends StatelessWidget {
 
   ProdContainer({this.productname, this.price, this.desc, this.category});
 
+  CollectionReference users = FirebaseFirestore.instance.collection('product');
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -150,7 +153,8 @@ class ProdContainer extends StatelessWidget {
               MyPopupMenuItem(
                 onClick: () {
                   // _store.deleteProduct(products[index].pId);
-                  // Navigator.pop(context);
+                  users.doc('product').delete();
+                  Navigator.pop(context);
                 },
                 child: Text('Delete'),
               ),

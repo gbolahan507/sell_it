@@ -20,6 +20,8 @@ Widget CustomInput({
   prefixIcon,
   labelfontsize,
   labelweight,
+  onSaved,
+  initialValue,
   TextEditingController controller,
 }) {
   return Container(
@@ -37,6 +39,8 @@ Widget CustomInput({
         TextFormField(
           onChanged: onchanged,
           controller: controller,
+          initialValue: initialValue,
+          onSaved: onSaved,
           textAlign: TextAlign.justify,
           validator: validator,
           obscureText: obsecuretext ?? false,
